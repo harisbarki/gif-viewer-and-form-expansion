@@ -13,6 +13,8 @@ const appRoutes: Routes = [
     redirectTo: 'gif-viewer',
     pathMatch: 'full'
   },
+  {path: 'gif-viewer', loadChildren: './pages/gif-viewer/gif-viewer.module#GifViewerModule'},
+  {path: 'form-expander', loadChildren: './pages/form-expander/form-expander.module#FormExpanderModule'},
   {
     path: '**',
     redirectTo: 'gif-viewer'

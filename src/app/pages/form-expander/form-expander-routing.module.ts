@@ -1,16 +1,16 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {GifViewerPage} from './gif-viewer.page';
+import {FormExpanderPage} from './form-expander.page';
 
 // So they can be imported in the main module easily
 export const routingComponents = [
-  GifViewerPage
+  FormExpanderPage
 ];
 
 const routes: Routes = [
   {
     path: '',
-    component: GifViewerPage
+    component: FormExpanderPage
   }
 ];
 
@@ -18,5 +18,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class GifViewerRoutingModule {
+export class FormExpanderRoutingModule {
 }
