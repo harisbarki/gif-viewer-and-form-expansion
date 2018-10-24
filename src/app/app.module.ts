@@ -5,7 +5,8 @@ import {
   MatCardModule,
   MatFormFieldModule,
   MatSliderModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatToolbarModule
 } from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -24,7 +25,8 @@ import {AppComponent} from './app.component';
     MatCardModule,
     MatFormFieldModule,
     MatSliderModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
