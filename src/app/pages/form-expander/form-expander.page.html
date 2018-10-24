@@ -1,8 +1,146 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <span>Form Expander</span>
-    <button mat-stroked-button color="accent" routerLink="/gif-viewer"  style="position: absolute; right: 12px;">
+    <button mat-stroked-button color="accent" routerLink="/gif-viewer" style="position: absolute; right: 12px;">
       Gif Viewer
     </button>
   </mat-toolbar-row>
 </mat-toolbar>
+
+<div fxLayout="row" fxLayoutAlign="center center">
+  <mat-card style="margin: 16px;">
+    <mat-card-header>
+      <mat-card-subtitle>
+        <strong>A note about the symptoms you are or have recently been feeling *</strong>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content style="padding-left: 18px;">
+      A Preuvo scan is a screen for cancer and many major diseases.
+      <br>
+      <br>
+      The symptoms that you are feeling now or recently are important context for our review of the images that we acquire of your body.
+      <br>
+      <br>
+      However, if you are feeling acute symptoms, it is important that you visit your family doctor to determine what is the best diagnostic approach that you
+      should follow. A Prenuvo scan can diagnose many conditions, can provide additional insight to a diagnosis but it is not always the most diagnostically
+      relevant approach for any one particular condition.
+      <br>
+      <br>
+      <mat-radio-group>
+        <mat-radio-button value="1">I understand this</mat-radio-button>
+      </mat-radio-group>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<!--<div fxLayout="row" fxLayoutAlign="center center">-->
+  <!--<mat-card style="margin: 16px;">-->
+    <!--<mat-card-header>-->
+      <!--<mat-card-title>-->
+        <!--General Symptoms-->
+      <!--</mat-card-title>-->
+    <!--</mat-card-header>-->
+    <!--<mat-card-content style="padding-left: 18px;">-->
+      <!--Check any of the following symptoms that you are or have recently experienced-->
+      <!--<br>-->
+      <!--<br>-->
+      <!--<mat-checkbox class="app-checkbox">Recent weight gain</mat-checkbox>-->
+      <!--<mat-checkbox class="app-checkbox">Recent weight loss</mat-checkbox>-->
+    <!--</mat-card-content>-->
+  <!--</mat-card>-->
+<!--</div>-->
+
+<!--<div fxLayout="row" fxLayoutAlign="center center">-->
+  <!--<mat-card style="margin: 16px;">-->
+    <!--<mat-card-header>-->
+      <!--<mat-card-title>-->
+        <!--Head Symptoms-->
+      <!--</mat-card-title>-->
+    <!--</mat-card-header>-->
+    <!--<mat-card-content style="padding-left: 18px;">-->
+      <!--Check any of the following head symptoms that you are or have recently experienced-->
+      <!--<br>-->
+      <!--<br>-->
+      <!--<mat-checkbox class="app-checkbox">Frequent headaches</mat-checkbox>-->
+      <!--<mat-checkbox class="app-checkbox">Frequent migraines</mat-checkbox>-->
+    <!--</mat-card-content>-->
+  <!--</mat-card>-->
+<!--</div>-->
+
+<!--<form #formExpander="ngForm">-->
+  <div fxLayout="row wrap" *ngFor="let formE of formExpander">
+    <mat-card style="margin: 16px;">
+      <mat-card-header>
+        <mat-card-title>
+          {{formE.categoryTitle}}
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content style="padding-left: 18px;">
+        {{formE.categoryInformation}}
+        <br>
+        <br>
+        <mat-radio-group>
+          <span *ngFor="let btn of formE.buttons">
+            <span *ngIf="btn.headingAbove">
+              <br>
+              <br>
+              {{btn.headingAbove}}
+              <br>
+              <br>
+            </span>
+
+            <span *ngIf="btn.type === FORM_ENUM.checkbox">
+              <mat-checkbox class="app-checkbox" [value]="btn.id" [(ngModel)]="btn.value">
+                {{btn.text}}
+              </mat-checkbox>
+            </span>
+            <span *ngIf="btn.type === FORM_ENUM.radiobtn">
+              <mat-radio-button class="app-checkbox" [value]="btn.id">
+                {{btn.text}}
+              </mat-radio-button>
+            </span>
+          </span>
+        </mat-radio-group>
+
+        <div style="margin-top: 16px;">
+          <div *ngFor="let internalForm of formE.internalForm">
+            <mat-card *ngIf="checkIfConditionMet(formE, internalForm)">
+              <mat-card-header>
+                <mat-card-title>
+                  {{internalForm.categoryTitle}}
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content style="padding-left: 18px;">
+                {{internalForm.categoryInformation}}
+                <br>
+                <br>
+                <mat-radio-group>
+                  <span *ngFor="let btn of internalForm.buttons">
+                    <span *ngIf="btn.headingAbove">
+                      <br>
+                      <br>
+                      {{btn.headingAbove}}
+                      <br>
+                      <br>
+                    </span>
+
+                    <span *ngIf="btn.type === FORM_ENUM.checkbox">
+                      <mat-checkbox class="app-checkbox" [value]="btn.id" [(ngModel)]="btn.value">
+                        {{btn.text}}
+                      </mat-checkbox>
+                    </span>
+                    <span *ngIf="btn.type === FORM_ENUM.radiobtn" >
+                      <mat-radio-button class="app-checkbox" [value]="btn.id">
+                        {{btn.text}}
+                      </mat-radio-button>
+                    </span>
+                  </span>
+                </mat-radio-group>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+<!--</form>-->

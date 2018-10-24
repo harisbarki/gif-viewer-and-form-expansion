@@ -7,7 +7,9 @@ import {
   MatSliderModule,
   MatProgressSpinnerModule,
   MatToolbarModule,
-  MatButtonModule
+  MatButtonModule,
+  MatRadioModule,
+  MatCheckboxModule,
 } from '@angular/material';
 
 @NgModule({
@@ -18,7 +20,9 @@ import {
     MatSliderModule,
     MatProgressSpinnerModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatRadioModule,
+    MatCheckboxModule,
   ],
   exports: [
     FlexLayoutModule,
@@ -27,7 +31,9 @@ import {
     MatSliderModule,
     MatProgressSpinnerModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatRadioModule,
+    MatCheckboxModule,
   ],
 })
 export class AngularMaterialModule {
