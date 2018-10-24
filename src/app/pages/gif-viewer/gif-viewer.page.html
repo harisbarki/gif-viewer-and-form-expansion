@@ -1,0 +1,39 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Gif Viewer</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- Options -->
+<div fxLayout="row" fxLayoutAlign="center center">
+  <mat-card style="max-width: 315px; margin: 16px;">
+    <mat-card-header fxLayoutAlign="center center">
+      <mat-card-title>Options</mat-card-title>
+    </mat-card-header>
+    <mat-card-content align="center">
+      <hr>
+      Number of Columns
+      <br>
+      <mat-slider [max]="12" [min]="1" [thumbLabel]="true" [(ngModel)]="numOfColumns" (change)="updateSizes()">
+      </mat-slider>
+      <hr>
+      Percentage similar width/height ratio for grouping
+      <br>
+      <mat-slider [max]="100" [min]="0" [thumbLabel]="true" [(ngModel)]="percentageSimilarSizeAllowed"
+                  (change)="updateSizes()">
+      </mat-slider>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<!-- Loading spinner -->
+<div fxLayout="row" fxLayoutAlign="center center">
+  <mat-spinner *ngIf="loading"></mat-spinner>
+</div>
+
+<!-- gifs area -->
+<div [fxLayout]="'row wrap'" [style.display]="loading ? 'none' : 'flex'">
+  <div [fxFlex]="gif.fxFlex" *ngFor="let gif of gifs;">
+    <img #bwGif [src]="gif.url" style="height: 100%; width: 100%"/>
+  </div>
+</div>

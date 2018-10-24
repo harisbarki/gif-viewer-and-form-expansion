@@ -1,15 +1,11 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {FlexLayoutModule} from '@angular/flex-layout';
-import {
-  MatCardModule,
-  MatFormFieldModule,
-  MatSliderModule,
-  MatProgressSpinnerModule,
-  MatToolbarModule
-} from '@angular/material';
-import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AppRoutingModule} from './app.routing.module';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {GifViewerModule} from './pages/gif-viewer/gif-viewer.module';
+
+import {SharedModule} from 'src/app/shared/shared.module';
 
 import {AppComponent} from './app.component';
 
@@ -21,12 +17,9 @@ import {AppComponent} from './app.component';
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    FormsModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatSliderModule,
-    MatProgressSpinnerModule,
-    MatToolbarModule
+    SharedModule,
+    AppRoutingModule,
+    GifViewerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
