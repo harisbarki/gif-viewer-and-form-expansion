@@ -28,4 +28,12 @@ export class FormExpanderPage {
       return true;
     }
   }
+
+  onSave() {
+    console.log('saving', this.formExpander);
+  }
+
+  onFinish() {
+    console.log('finsih', this.formExpander);
+  }
 }
